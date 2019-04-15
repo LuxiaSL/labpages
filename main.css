@@ -1,0 +1,10 @@
+body{
+	background: #4286f4 !important;
+}
+
+@media (min-width: 1200px) {
+	.container{
+		max-width: 1370px !important;
+		width: 1370px !important;
+	}
+}
