@@ -5,12 +5,18 @@ If(session_status() == PHP_SESSION_NONE){
 ?>
 <html>
   <head>
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+	<?php include_once('includehead.php'); ?>
     <title>Start</title>
   </head>
   <body>
     <div class="container">
+		<div class="text-center mt-5" role="group">
+			Choose a login page<br>
+			<div class="btn-group btn-group-lg mt-3">
+				<a href="securelogin.php" class="btn btn-primary">Secure</a>
+				<a href="insecurelogin.php" class="btn btn-primary">Insecure</a>
+			</div>
+		</div>
     </div>
   </body>
 </html>
