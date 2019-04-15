@@ -7,14 +7,13 @@ function db_connect( bool $param ){
 	
 	if($param){
 		$conn = new mysqli($server, $user, $password, $db);
-		
-		if(mysqli_connect_errno()){
-			printf("Connect failed: %s\n", mysqli_connect_error());
-			exit();
-		}
-		
 	}else{
 		$conn = mysqli_connect($server, $user, $password, $db);
+	}
+	
+	if(mysqli_connect_errno()){
+		printf("Connect failed: %s\n", mysqli_connect_error());
+		exit();
 	}
 	
 	return $conn;
