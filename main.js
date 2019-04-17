@@ -1,6 +1,6 @@
 function post(destURL, data, callback){
 	let xhttp, formData;
-	xhttp = new XmlHttpRequest();
+	xhttp = new XMLHttpRequest();
 	formData = new FormData();
 	
 	xhttp.onreadystatechange = function(){
@@ -16,7 +16,7 @@ function post(destURL, data, callback){
 	xhttp.open('POST', url, true);
 	
 	for(let entry in data){
-		if(data.hasOwnProperty(entry){
+		if(data.hasOwnProperty(entry)){
 			formData.append(entry, data[entry]);
 		}
 	}
