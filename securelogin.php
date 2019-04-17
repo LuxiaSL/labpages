@@ -32,7 +32,7 @@
                     };
 
                     post('loginfn.php', formObj, function(res){
-                        document.getElementById('resDiv').innerHTML = res;
+                        document.getElementById('overall-feed').innerHTML = res;
                     });
                 }
             }
@@ -44,11 +44,14 @@
                 <div class="form-group">
                     <label for="username">Username</label>
                     <input type="text" class="form-control" id="username" name="username" placeholder="Username">
+		    <div class="feedback" id="username-feed"></div>
                 </div>
                 <div class="form-group">
                     <label for="password">Password</label>
                     <input type="password" class="form-control" id="password" name="password">
+		    <div class="feedback" id="password-feed"></div>
                 </div>
+		<div class="feedback" id="overall-feed"></div>
                 <button class="btn btn-primary" onclick="submit()">Sign in</button><br>
             </div>
         </div>
