@@ -1,3 +1,7 @@
 function ValidateEl( element ){
-    return element.validity.valid;
+    let rtrObj = {
+        pass : element.validity.valid,
+    }
+    
+    return rtrObj;
 }
