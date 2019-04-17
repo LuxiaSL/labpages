@@ -13,7 +13,7 @@ function post(destURL, data, callback){
 		}
 	};
 	
-	xhttp.open('POST', url, true);
+	xhttp.open('POST', destURL, true);
 	
 	for(let entry in data){
 		if(data.hasOwnProperty(entry)){
