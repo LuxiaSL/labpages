@@ -8,3 +8,22 @@ body{
 		width: 1370px !important;
 	}
 }
+
+code {
+	display: block;
+	white-space: pre-wrap
+}
+
+hr{
+	width: 25%;
+	margin: 0px;
+}
+
+.container{
+	width: 80%;
+	margin: 0 auto;
+}
+
+td, th{
+	padding: 3px;
+}

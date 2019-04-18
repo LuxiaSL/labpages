@@ -36,7 +36,7 @@ function Login( string $username, bool $success ){
 	$conn = db_connect(true);
 	$ip = $_SERVER['REMOTE_ADDR'];
 
-	$qry2 = $conn->prepare("INSERT INTO logintrack (username, success, ipaddr) VALUES(?,?,?)");
+	$qry2 = $conn->prepare("INSERT INTO logintrack (users, success, ipaddr) VALUES(?,?,?)");
 
 	if($success){
 		$_SESSION['username'] == $username;

@@ -1,9 +1,9 @@
 <?php
-function db_connect( bool $param ){
-	$server = "127.0.0.1";
-	$user = "dbadmin";
-	$password = "password";
-	$db = "project";
+function db_connect(bool $param ){
+	$server = "localhost";
+	$user = "testdbconn";
+	$password = "superpassword";
+	$db = "login";
 	
 	if($param){
 		$conn = new mysqli($server, $user, $password, $db);
