@@ -1,8 +1,8 @@
 <html>
     <head>
-	<?php include_once('includehead.php'); ?>
+		<?php include_once('includehead.php'); ?>
         <script src="validation.js"></script>
-        <title>Start</title>
+        <title>Secure Login</title>
         <script>
             let htmlInp = {
                 username : document.getElementById('username'),
@@ -44,14 +44,14 @@
                 <div class="form-group">
                     <label for="username">Username</label>
                     <input type="text" class="form-control" id="username" name="username" placeholder="Username">
-		    <div class="feedback" id="username-feed"></div>
+		    		<div class="feedback" id="username-feed"></div>
                 </div>
                 <div class="form-group">
                     <label for="password">Password</label>
                     <input type="password" class="form-control" id="password" name="password">
-		    <div class="feedback" id="password-feed"></div>
+		    		<div class="feedback" id="password-feed"></div>
                 </div>
-		<div class="feedback" id="overall-feed"></div>
+				<div class="feedback" id="overall-feed"></div>
                 <button class="btn btn-primary" onclick="submit()">Sign in</button><br>
             </div>
         </div>
