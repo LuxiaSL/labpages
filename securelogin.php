@@ -31,8 +31,8 @@
                         param : "yes",
                     };
 
-                    post('loginfn.php', formObj, function(res, xhttp){
-                        document.getElementById('overall-feed').innerHTML = res;
+                    post('loginfn.php', formObj, function(res, xhr){
+                        document.getElementById('resDiv').innerHTML = res;
                     });
                 }
             }
@@ -51,7 +51,7 @@
                     <input type="password" class="form-control" id="password" name="password">
 		    		<div class="feedback" id="password-feed"></div>
                 </div>
-				<div class="feedback" id="overall-feed"></div>
+				<div id="resDiv"></div>
                 <button class="btn btn-primary" onclick="submit()">Sign in</button><br>
             </div>
         </div>
