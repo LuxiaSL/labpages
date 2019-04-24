@@ -3,8 +3,9 @@ include_once('includehead.php');
 
 $username = $_REQUEST['username'];
 $password = $_REQUEST['password'];
+$param = $_REQUEST['param'] == "yes";
 
-if($_REQUEST['param'] == "Yes"){
+if($param){
 	
 	$conn = db_connect(true);
 	
@@ -17,9 +18,9 @@ if($_REQUEST['param'] == "Yes"){
 	$qry->bind_result($pass);
 	$qry->fetch();
 	
-	$pass['Pass'] != 0 ? Login($username, true) : Login($username, false);
+	$pass['Pass'] != 0 ? Login($username, true, $param) : Login($username, false, $param);
 		
-}else{
+}else if($param){
 	
 	$conn = db_connect(false);
 	
@@ -28,11 +29,11 @@ if($_REQUEST['param'] == "Yes"){
 	$out = mysqli_query($conn, $qry);
 	$pass = mysqli_fetch_assoc($out);
 	
-	$pass['Pass'] != 0 ? Login($username, true) : Login($username, false);
+	$pass['Pass'] != 0 ? Login($username, true, $param) : Login($username, false, $param);
 	
 }
 
-function Login( string $username, bool $success ){
+function Login( string $username, bool $success, bool $isParam ){
 	$conn = db_connect(true);
 	$ip = $_SERVER['REMOTE_ADDR'];
 
@@ -52,8 +53,12 @@ function Login( string $username, bool $success ){
 		$qry2->bind_param("sis", $username, $logSucc, $ip);
 
 		$qry2->execute();
-
-		echo "<strong>Username, password, and IP combination not found for any active users. Please try again.</strong>";
+		
+		if($isParam){
+			echo "<strong>Username, password, and IP combination not found for any active users. Please try again.</strong>";
+		}else{
+			echo "<script>window.location = \"insecurelogin.php?failed\";</script>";
+		}
 	}
 }
 ?>
