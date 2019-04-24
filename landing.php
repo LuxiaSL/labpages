@@ -2,11 +2,11 @@
 <html>
 	<head>
 		<?php include_once('includehead.php'); ?>
-    	<title>Start</title>
+    	<title>Landing</title>
   	</head>
   	<body>
-    	<div class="container">
-			<div class="text-center mt-5" role="group">
+    		<div class="container">
+			<div class="text-center mt-5">
 				Landing page<br>
 				Choose desired page
 				<div class="btn-group btn-group-lg mt-3" role="group">
