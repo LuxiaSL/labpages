@@ -31,7 +31,7 @@
                         param : "yes",
                     };
 
-                    post('loginfn.php', formObj, function(res){
+                    post('loginfn.php', formObj, function(res, xhttp){
                         document.getElementById('overall-feed').innerHTML = res;
                     });
                 }
