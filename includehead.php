@@ -1,8 +1,8 @@
 <?php
-function db_connect(bool $param ){
+function db_connect( $param ){
 	$server = "localhost";
-	$user = "testdbconn";
-	$password = "superpassword";
+	$user = "root";
+	$password = "P@ssw0rd";
 	$db = "login";
 	
 	if($param){

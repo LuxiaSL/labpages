@@ -27,3 +27,7 @@ hr{
 td, th{
 	padding: 3px;
 }
+
+.failedValidation{
+	display: block;
+}

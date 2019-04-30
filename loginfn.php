@@ -5,11 +5,13 @@ $username = $_REQUEST['username'];
 $password = $_REQUEST['password'];
 $param = $_REQUEST['param'] == "yes";
 
+print_r($_REQUEST);
+
 if($param){
 	
 	$conn = db_connect(true);
 	
-	$qry = $conn->prepare("SELECT EXISTS(SELECT * FROM logins WHERE username=? AND active=1 AND password=? AND ipaddr=?) AS Pass");
+	$qry = $conn->prepare("SELECT EXISTS(SELECT * FROM loginstore WHERE username=? AND active=1 AND password=? AND ipaddr=?) AS Pass");
 	
 	$qry->bind_param("sss", $username, $password, $_SERVER['REMOTE_ADDR']);
 	
@@ -24,7 +26,7 @@ if($param){
 	
 	$conn = db_connect(false);
 	
-	$qry = "SELECT COUNT(*) AS Pass FROM logins WHERE username='$username' AND active=1 AND password='$password' AND ipaddr='{$_SERVER['REMOTE_ADDR']}'";
+	$qry = "SELECT COUNT(*) AS Pass FROM loginstore WHERE username='$username' AND active=1 AND password='$password' AND ipaddr='{$_SERVER['REMOTE_ADDR']}'";
 	
 	$out = mysqli_query($conn, $qry);
 	$pass = mysqli_fetch_assoc($out);
@@ -33,11 +35,11 @@ if($param){
 	
 }
 
-function Login( string $username, bool $success, bool $isParam ){
+function Login( $username, $success, $isParam ){
 	$conn = db_connect(true);
 	$ip = $_SERVER['REMOTE_ADDR'];
 
-	$qry2 = $conn->prepare("INSERT INTO logintrack (users, success, ipaddr) VALUES(?,?,?)");
+	$qry2 = $conn->prepare("INSERT INTO logins (username, success, ipaddr) VALUES(?,?,?)");
 
 	if($success){
 		$_SESSION['username'] == $username;
