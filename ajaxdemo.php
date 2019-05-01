@@ -14,7 +14,7 @@
 				
 				<p class="demo-explain">
                 The purpose of this page is to show some of the basics of how AJAX works, and some ways it can be used maliciously.<br>
-                The basic priniciple of AJAX is that you can use it to send form data just like with regular HTML forms, but to arbitrary pages.<br>
+                The basic principle of AJAX is that you can use it to send form data just like with regular HTML forms, but to arbitrary pages.<br>
                 The code doing the AJAX work is complicated, but included below:
                 <pre><code>
                 function post(destURL, data, callback){
