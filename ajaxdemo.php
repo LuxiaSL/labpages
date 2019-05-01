@@ -4,47 +4,6 @@
 		<?php include_once('includehead.php'); ?>
     	<title>AJAX Demo</title>
 		<script src="validation.js"></script>
-		<script>
-		let htmlInp = {
-			fileUp : document.getElementById('fileUp'),
-			searchData : document.getElementById('searchData'),
-			destURL : document.getElementById('destURL'),
-		};
-		
-		function submit(){
-			let fileRes = ValidateEl(htmlInp.fileUp),
-				forgeRes = ValidateEl(htmlInp.searchData),
-				urlRes = ValidateEl(htmlInp.destURL),
-				resDiv = document.getElementById('resDiv'),
-				resSucc = true,
-				xxx = "https://stackoverflow.com/questions/55829798/c-diamond-problem-how-to-call-base-method-only-once";
-				
-			if(!fileRes.pass){
-				//do something
-				resSucc = false;
-			}
-			
-			if(!forgeRes.pass){
-				//do something
-				resSucc = false;
-			}
-			
-			if(!destURL.pass){
-				//do something
-				resSucc = false;
-			}
-			
-			if(resSucc){
-				let formObj = {
-					[htmlInp.username.name] : htmlInp.username.value,
-					[htmlInp.fileRes.name] : htmlInp.fileRes.files
-				};
-				
-				post(htmlInp.destUrl.value, formObj, function(res, xhr){
-					resDiv = res;
-				});
-			}
-		}
   	</head>
   	<body>
     	<div class="container">
@@ -64,7 +23,7 @@
 					
 					<div class="form-group">
 						<label for="fileUp">File Input:</label>
-						<input type="file" class="form-control" id="fileUp" name="fileUp" accept="txt">
+						<input type="file" class="form-control" id="fileUp" name="fileUp" >
 						<div class="feedback" id="fileUp-feed"></div>
 					</div>
 					
@@ -84,4 +43,45 @@
 			</div>
     	</div>
   	</body>
+    <script>
+        let htmlInp = {
+            fileUp : document.getElementById('fileUp'),
+            searchData : document.getElementById('searchData'),
+            destURL : document.getElementById('destURL'),
+        };
+
+        function submit(){
+            let fileRes = ValidateEl(htmlInp.fileUp),
+                forgeRes = ValidateEl(htmlInp.searchData),
+                urlRes = ValidateEl(htmlInp.destURL),
+                resDiv = document.getElementById('resDiv'),
+                resSucc = true;
+
+            if(!fileRes.pass){
+                //do something
+                resSucc = false;
+            }
+
+            if(!forgeRes.pass){
+                //do something
+                resSucc = false;
+            }
+
+            if(!destURL.pass){
+                //do something
+                resSucc = false;
+            }
+
+            if(resSucc){
+                let formObj = {
+                    [htmlInp.username.name] : htmlInp.username.value,
+                    [htmlInp.fileUp.name] : htmlInp.fileUp.files[0]
+                };
+
+                post(htmlInp.destUrl.value, formObj, function(res, xhr){
+                    resDiv = res;
+                });
+            }
+        }
+    </script>
 </html>

@@ -1,8 +1,3 @@
-<?php
-If(session_status() == PHP_SESSION_NONE){
-	session_start();
-}
-?>
 <html>
 	<head>
 		<?php include_once('includehead.php'); ?>
@@ -16,6 +11,11 @@ If(session_status() == PHP_SESSION_NONE){
 					<a href="securelogin.php" class="btn btn-primary">Secure</a>
 					<a href="insecurelogin.php" class="btn btn-primary">Insecure</a>
 				</div>
+                <div class="mt-3">
+                    <?php if(isset($_REQUEST['invalidusername'])): ?>
+                        <strong>Error: You were not logged in. Please log in.</strong>
+                    <?php endif; ?>
+                </div>
 			</div>
     	</div>
   	</body>

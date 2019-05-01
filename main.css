@@ -1,5 +1,5 @@
 body{
-	background: #4286f4 !important;
+	background: #007770 !important;
 }
 
 @media (min-width: 1200px) {
@@ -14,14 +14,14 @@ code {
 	white-space: pre-wrap
 }
 
-hr{
-	width: 25%;
-	margin: 0px;
-}
-
 .container{
 	width: 80%;
+	height: 75%;
 	margin: 0 auto;
+}
+
+.footer{
+	min-height: 25%;
 }
 
 td, th{
@@ -30,4 +30,12 @@ td, th{
 
 .failedValidation{
 	display: block;
+}
+
+.list-group-item {
+	display: list-item;
+}
+
+.list-group {
+	list-style: decimal inside;
 }
