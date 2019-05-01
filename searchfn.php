@@ -10,6 +10,8 @@ if($type=="named"){
 	$sqlQry = "SELECT DATE(datetime) AS Date, TIME(datetime) AS Time, ipaddr, success FROM logins WHERE username LIKE '{$username}' ORDER BY id DESC";
 }
 
+echo $sqlQry;
+
 $out = mysqli_query(db_connect(false), $sqlQry);
 
 $outDoc = <<<HTML

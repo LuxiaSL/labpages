@@ -55,7 +55,7 @@
                     Prepare the SQL statement. The statement basically checks to see if there is a return for a corresponding active username, password, and IP combo.
                 </li>
                 <li class="list-group-item">
-                    After prepping, assign the values to the statement.
+                    After prepping, assign the values to the statement. Upon assigning the values, the MySQL server handles it such that no user input is allowed to escape from the string.
                 </li>
                 <li class="list-group-item">
                     Execute the statement, and then do something with the result. In this, the result is checked and a corresponding function executed.
