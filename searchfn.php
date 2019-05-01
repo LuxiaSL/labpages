@@ -7,10 +7,8 @@ $type = $_REQUEST['type'];
 if($type=="named"){
 	$sqlQry = "SELECT *, DATE(datetime) AS Date, TIME(datetime) AS Time FROM logins WHERE username LIKE '{$username}' ORDER BY id DESC";
 }else if($type=="numbered"){
-	$sqlQry = "SELECT DATE(datetime) AS Date, TIME(datetime) AS Time, ipaddr, success FROM logins WHERE username LIKE '{$username}' ORDER BY id DESC";
+	$sqlQry = "SELECT DATE(datetime) AS Date, TIME(datetime) AS Time, ipaddr, success, username FROM logins WHERE username LIKE '{$username}' ORDER BY id DESC";
 }
-
-echo $sqlQry;
 
 $out = mysqli_query(db_connect(false), $sqlQry);
 
@@ -23,6 +21,7 @@ $outDoc = <<<HTML
 			<th scope="col">Time</th>
 			<th scope="col">IP Address</th>
 			<th scope="col">Success</th>
+			<th scope="col">Username Attempted</th>
 		</tr>
 	</thead>
 	<tbody>
@@ -39,6 +38,7 @@ if($type == "named"){
 			<td>{$row['Time']}</td>
 			<td>{$row['ipaddr']}</td>
 			<td>{$success}</td>
+			<td>{$row['username']}</td>
 		</tr>
 HTML;
 
@@ -55,6 +55,7 @@ HTML;
 			<td>{$row[1]}</td>
 			<td>{$row[2]}</td>
 			<td>{$success}</td>
+			<td>{$row[4]}</td>
 		</tr>
 HTML;
 
