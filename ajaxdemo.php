@@ -46,12 +46,13 @@
                 function submit(){
                     if(resSucc){
                         let formObj = {
-                            [htmlInp.username.name] : htmlInp.username.value,
-                            [htmlInp.fileUp.name] : htmlInp.fileUp.files[0]
+                            [document.getElementById('paramName1').value] : document.getElementById('searchData1').value,
+                            [document.getElementById('paramName2').value] : document.getElementById('searchData2').value,
+                            [fileUp.name] : fileUp.files[0],
                         };
 
-                        post(htmlInp.destUrl.value, formObj, function(res, xhr){
-                            resDiv = res;
+                        post(document.getElementById('destURL').value, formObj, function(res, xhr){
+                            resDiv.innerHTML = res;
                         });
                     }
                 }
